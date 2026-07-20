@@ -7,6 +7,7 @@ help:
 
 bootstrap: ## Build images and start PostgreSQL
 	test -f .env || cp .env.example .env
+	mkdir -p artifacts
 	docker compose up -d --build postgres
 
 demo: bootstrap ## Deterministic offline build from committed fixtures
