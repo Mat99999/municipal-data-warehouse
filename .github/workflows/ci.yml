@@ -26,5 +26,5 @@ jobs:
       - run: make benchmark
       - run: docker compose up -d dashboard
       - run: curl --fail --retry 30 --retry-delay 3 --retry-all-errors http://localhost:8501/_stcore/health
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with: {name: query-plans, path: artifacts/benchmark.txt}
