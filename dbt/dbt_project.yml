@@ -1,0 +1,21 @@
+name: municipal_data_warehouse
+version: 1.0.0
+config-version: 2
+profile: municipal_data_warehouse
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+clean-targets: ["target", "dbt_packages"]
+models:
+  municipal_data_warehouse:
+    staging:
+      +schema: staging
+      +materialized: view
+    warehouse:
+      +schema: warehouse
+      +materialized: table
+    analytics:
+      +schema: analytics
+      +materialized: table
+

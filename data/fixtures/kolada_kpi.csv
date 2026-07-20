@@ -1,0 +1,28 @@
+municipality_code,year,kpi_id,kpi_name,unit,category,sex,value
+0180,2022,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,15620
+0180,2022,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,82
+0180,2022,N00901,Municipal tax rate,percent,Finance,not_applicable,17.74
+0180,2023,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,16390
+0180,2023,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,83
+0180,2023,N00901,Municipal tax rate,percent,Finance,not_applicable,17.74
+0180,2024,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,17180
+0180,2024,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,84
+0180,2024,N00901,Municipal tax rate,percent,Finance,not_applicable,17.74
+0580,2022,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,18400
+0580,2022,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,88
+0580,2022,N00901,Municipal tax rate,percent,Finance,not_applicable,20.20
+0580,2023,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,19150
+0580,2023,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,87
+0580,2023,N00901,Municipal tax rate,percent,Finance,not_applicable,20.20
+0580,2024,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,20250
+0580,2024,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,89
+0580,2024,N00901,Municipal tax rate,percent,Finance,not_applicable,20.20
+1280,2022,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,16800
+1280,2022,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,79
+1280,2022,N00901,Municipal tax rate,percent,Finance,not_applicable,21.24
+1280,2023,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,17750
+1280,2023,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,80
+1280,2023,N00901,Municipal tax rate,percent,Finance,not_applicable,21.24
+1280,2024,N20043,Cost of eldercare,SEK per resident,Eldercare,not_applicable,18900
+1280,2024,N00533,Positive view of municipal eldercare,percent,Eldercare,not_applicable,81
+1280,2024,N00901,Municipal tax rate,percent,Finance,not_applicable,21.24

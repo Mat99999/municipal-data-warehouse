@@ -1,0 +1,13 @@
+municipal_data_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'postgres') }}"
+      port: 5432
+      user: "{{ env_var('POSTGRES_USER', 'warehouse_admin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'warehouse_dev_password') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'municipal_dw') }}"
+      schema: analytics
+      threads: 4
+

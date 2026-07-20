@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "municipal-data-warehouse"
+version = "1.0.0"
+description = "Reproducible analytics warehouse for Swedish municipal open data"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Municipal Data Warehouse contributors"}]
+dependencies = [
+  "httpx>=0.28,<1",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+  "polars>=1.20,<2",
+  "openpyxl>=3.1,<4",
+  "tenacity>=9,<10",
+  "typer>=0.15,<1",
+  "structlog>=25,<26",
+]
+
+[project.optional-dependencies]
+dbt = ["dbt-postgres>=1.9,<2"]
+dashboard = ["streamlit>=1.41,<2", "plotly>=6,<7", "pandas>=2.2,<3"]
+dev = [
+  "pytest>=8.3,<9",
+  "pytest-cov>=6,<7",
+  "respx>=0.22,<1",
+  "ruff>=0.9,<1",
+  "mypy>=1.14,<2",
+  "pandas-stubs>=2.2,<3",
+  "sqlfluff>=3.3,<4",
+  "sqlfluff-templater-dbt>=3.3,<4",
+]
+
+[project.scripts]
+municipal-dw = "municipal_dw.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/municipal_dw"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["municipal_dw"]

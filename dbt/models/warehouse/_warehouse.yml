@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: dim_region
+    columns:
+      - name: region_key
+        tests: [unique, not_null]
+  - name: dim_municipality
+    description: Type-2 municipality dimension preserving renamed and reassigned municipalities.
+    columns:
+      - name: municipality_key
+        tests: [unique, not_null]
+      - name: region_key
+        tests:
+          - relationships:
+              arguments: {to: ref('dim_region'), field: region_key}
+  - name: dim_time
+    columns:
+      - name: year_key
+        tests: [unique, not_null]
+  - name: dim_demographic
+    columns:
+      - name: demographic_key
+        tests: [unique, not_null]
+  - name: dim_metric
+    columns:
+      - name: metric_key
+        tests: [unique, not_null]
+  - name: dim_party
+    columns:
+      - name: party_key
+        tests: [unique, not_null]
+  - name: fact_population
+    description: One row per municipality, year, sex, and documented age band.
+    columns:
+      - name: population_fact_key
+        tests: [unique, not_null]
+      - name: population_count
+        tests: [not_null]
+      - name: municipality_key
+        tests:
+          - relationships:
+              arguments: {to: ref('dim_municipality'), field: municipality_key}
+  - name: fact_municipal_kpi
+    description: One row per municipality, year, Kolada metric, and demographic variant.
+    columns:
+      - name: municipal_kpi_fact_key
+        tests: [unique, not_null]
+      - name: metric_key
+        tests:
+          - relationships:
+              arguments: {to: ref('dim_metric'), field: metric_key}
+  - name: fact_election_result
+    description: One row per municipality, municipal-election year, and party.
+    columns:
+      - name: election_fact_key
+        tests: [unique, not_null]
+      - name: vote_share
+        tests: [not_null]

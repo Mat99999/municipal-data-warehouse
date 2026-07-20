@@ -1,0 +1,22 @@
+name: Data source proposal
+description: Propose an authoritative municipal dataset and its analytical contract.
+title: "[source]: "
+labels: ["data-source"]
+body:
+  - type: input
+    id: owner
+    attributes: {label: Source owner}
+    validations: {required: true}
+  - type: input
+    id: url
+    attributes: {label: Authoritative URL}
+    validations: {required: true}
+  - type: textarea
+    id: grain
+    attributes: {label: Proposed grain and measures}
+    validations: {required: true}
+  - type: textarea
+    id: quality
+    attributes: {label: Known revisions, missingness, and quality risks}
+    validations: {required: true}
+

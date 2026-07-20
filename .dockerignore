@@ -1,0 +1,8 @@
+.git
+.venv
+target
+logs
+artifacts
+dist
+build
+data/live

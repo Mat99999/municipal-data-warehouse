@@ -1,0 +1,30 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    loaded_at_field: loaded_at
+    freshness:
+      warn_after: {count: 400, period: day}
+    tables:
+      - name: municipality
+      - name: population
+      - name: municipal_kpi
+      - name: election_result
+      - name: ingestion_batch
+
+models:
+  - name: stg_municipalities
+    description: One current source record per Swedish municipality.
+    columns:
+      - name: municipality_code
+        tests: [unique, not_null]
+  - name: stg_population
+    description: Population observations at municipality-year-sex-age grain.
+    columns:
+      - name: population_count
+        tests: [not_null]
+  - name: stg_municipal_kpi
+    description: Kolada KPI observations in a normalized long format.
+  - name: stg_election_results
+    description: Municipal election results at municipality-election-party grain.
+

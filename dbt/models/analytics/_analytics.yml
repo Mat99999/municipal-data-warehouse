@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: mart_population_growth
+    description: Annual municipal population, year-over-year growth, and three-year moving average.
+    columns:
+      - name: municipality_key
+        tests: [not_null]
+  - name: mart_municipality_year
+    description: Dashboard-ready scorecard at municipality-year grain.
+    columns:
+      - name: municipality_key
+        tests: [not_null]
+      - name: year
+        tests: [not_null]
+  - name: mart_peer_benchmark
+    description: Peer percentiles and deviations computed consistently for each year.
+  - name: mart_election_change
+    description: Party vote share, rank, and change from the prior municipal election.
+  - name: mart_data_quality
+    description: Dashboard-facing summary of critical warehouse assertions.
+    columns:
+      - name: check_name
+        tests: [unique, not_null]
+      - name: violation_count
+        tests: [not_null]
