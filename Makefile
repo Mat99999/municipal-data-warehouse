@@ -10,7 +10,7 @@ bootstrap: ## Build images and start PostgreSQL
 	docker compose up -d --build postgres
 
 demo: bootstrap ## Deterministic offline build from committed fixtures
-	docker compose run --rm pipeline ingest --mode fixture
+	docker compose run --rm pipeline --mode fixture
 	docker compose run --rm --entrypoint dbt pipeline run --select staging --project-dir dbt --profiles-dir dbt
 	docker compose run --rm --entrypoint dbt pipeline snapshot --project-dir dbt --profiles-dir dbt
 	docker compose run --rm --entrypoint dbt pipeline build --project-dir dbt --profiles-dir dbt
@@ -18,7 +18,7 @@ demo: bootstrap ## Deterministic offline build from committed fixtures
 	docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U "$${POSTGRES_USER:-warehouse_admin}" -d "$${POSTGRES_DB:-municipal_dw}" -f /app/sql/tests/end_to_end.sql
 
 refresh: bootstrap ## Refresh all configured live sources and rebuild models
-	docker compose run --rm pipeline ingest --mode live
+	docker compose run --rm pipeline --mode live
 	docker compose run --rm --entrypoint dbt pipeline run --select staging --project-dir dbt --profiles-dir dbt
 	docker compose run --rm --entrypoint dbt pipeline snapshot --project-dir dbt --profiles-dir dbt
 	docker compose run --rm --entrypoint dbt pipeline build --project-dir dbt --profiles-dir dbt
