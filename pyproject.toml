@@ -20,21 +20,21 @@ dependencies = [
   "openpyxl>=3.1,<4",
   "tenacity>=9,<10",
   "typer>=0.15,<1",
-  "structlog>=25,<26",
+  "structlog>=25,<27",
 ]
 
 [project.optional-dependencies]
 dbt = ["dbt-postgres>=1.9,<2"]
-dashboard = ["streamlit>=1.41,<2", "plotly>=6,<7", "pandas>=2.2,<3"]
+dashboard = ["streamlit>=1.41,<2", "plotly>=6,<8", "pandas>=2.2,<4"]
 dev = [
-  "pytest>=8.3,<9",
-  "pytest-cov>=6,<7",
+  "pytest>=8.3,<10",
+  "pytest-cov>=6,<8",
   "respx>=0.22,<1",
   "ruff>=0.9,<1",
-  "mypy>=1.14,<2",
-  "pandas-stubs>=2.2,<3",
-  "sqlfluff>=3.3,<4",
-  "sqlfluff-templater-dbt>=3.3,<4",
+  "mypy>=1.14,<3",
+  "pandas-stubs>=2.2,<4",
+  "sqlfluff>=3.3,<5",
+  "sqlfluff-templater-dbt>=3.3,<5",
 ]
 
 [project.scripts]
